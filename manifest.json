@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "KumoTranslate",
+  "version": "1.0",
+  "description": "OCR et traduction automatique de mangas",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "kumotranslate@stusoft.com",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_title": "KumoTranslate"
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:;"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "lib/tesseract.min.js",
+        "lib/worker.min.js",
+        "lib/tesseract-core.wasm.js",
+		"lib/tesseract-core.wasm",
+		"lang/jpn.traineddata",
+		"lang/jpn_vert.traineddata",
+		"lang/eng.traineddata",
+		"lang/chi_sim.traineddata",
+		"lang/chi_tra.traineddata"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
